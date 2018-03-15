@@ -1,6 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Products Management" verbose="1" >
+
+    <parameter name="login" value="webinar.test@gmail.com"/>
+    <parameter name="password" value="Xcg7299bnSmMuRLp9ITw"/>
+    <parameter name="adminAddress" value="http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/"/>
+    <parameter name="storeAddress" value="http://prestashop-automation.qatestlab.com.ua/"/>
+
     <test name="Create New Product [Chrome]" >
         <!--configure test to execute testing script using Chrome browser-->
         <classes>
