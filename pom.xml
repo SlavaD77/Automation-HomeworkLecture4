@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>SeleniumTraining</groupId>
+    <groupId>SeleniumTraining.HomeworkLecture4</groupId>
     <artifactId>HomeworkLecture4</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -40,6 +40,17 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${project.build.testOutputDirectory}/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+
+                    <systemPropertyVariables>
+
+                        <env.browser>${env.browser}</env.browser>
+                        <env.admin.url>${env.admin.url}</env.admin.url>
+                        <env.url>${env.url}</env.url>
+                        <env.login>${env.login}</env.login>
+                        <env.password>${env.password}</env.password>
+
+                    </systemPropertyVariables>
+
                 </configuration>
             </plugin>
 
@@ -84,9 +95,17 @@
 
     </dependencies>
 
+
     <properties>
         <maven.compiler.source>7</maven.compiler.source>
         <maven.compiler.target>7</maven.compiler.target>
+
+        <env.browser>chrome</env.browser>
+        <env.admin.url>http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/</env.admin.url>
+        <env.url>http://prestashop-automation.qatestlab.com.ua/</env.url>
+        <env.login>webinar.test@gmail.com</env.login>
+        <env.password>Xcg7299bnSmMuRLp9ITw</env.password>
+
     </properties>
 
 
