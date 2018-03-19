@@ -90,12 +90,4 @@ public class GeneralActions {
             wait.until(expectation);
     }
 
-    public void waitSleep(){
-        try {
-            Thread.sleep(5000);
-        } catch (Throwable t) {
-            System.out.println("------------");
-        }
-    }
-
 }

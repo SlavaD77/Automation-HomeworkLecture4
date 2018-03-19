@@ -66,7 +66,20 @@ public class CreateProductTest extends BaseTest {
 
         shopMainPage.clickAllProductsLink();
 
+        actions.waitForContentLoad();
+
+        List<WebElement> nextProductLinkEnabled = driver.findElements(shopMainPage.getNextProductsLinkEnabled());
+
         List<WebElement> listProductLinks = driver.findElements(By.partialLinkText(productData.getName()));
+
+        //switch pages 1,2 .... with product views
+        while (!nextProductLinkEnabled.isEmpty())
+        {
+            if(!listProductLinks.isEmpty()) break;
+            nextProductLinkEnabled.get(0).click();
+            actions.waitForContentLoad();
+            listProductLinks = driver.findElements(By.partialLinkText(productData.getName()));
+        }
 
         Assert.assertTrue(!listProductLinks.isEmpty(), "Product name was not found (search by partial link text");
 
