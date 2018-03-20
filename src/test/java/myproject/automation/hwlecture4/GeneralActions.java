@@ -6,7 +6,9 @@ import myproject.automation.hwlecture4.pages.LoginPage;
 import myproject.automation.hwlecture4.pages.ProductsPage;
 import myproject.automation.hwlecture4.utils.Properties;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -29,6 +31,11 @@ public class GeneralActions {
      */
     public void login(String login, String password) {
         // DONE implement logging in to Admin Panel
+
+        //Set zoom to 100% (need for internet explorer)
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.CONTROL).sendKeys("0").keyUp(Keys.CONTROL).perform();
+
         LoginPage loginPage = new LoginPage(driver);
 
         driver.navigate().to(Properties.getBaseAdminUrl());

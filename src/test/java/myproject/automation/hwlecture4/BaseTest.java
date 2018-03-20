@@ -3,10 +3,12 @@ package myproject.automation.hwlecture4;
 import myproject.automation.hwlecture4.utils.Properties;
 import myproject.automation.hwlecture4.utils.logging.EventHandler;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
@@ -49,17 +51,19 @@ public abstract class BaseTest {
                         InternetExplorerDriver ieDriver;
                         //Ignore zoom level for IE   https://groups.google.com/forum/?fromgroups=#!topic/webdriver/pZuj9uU1Evc
                         //https://github.com/SeleniumHQ/selenium/issues/4292
-                DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
+                        //https://stackoverflow.com/questions/12034969/internetexplorerdriver-zoom-level-error
+                        DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
 
-                ieCapabilities.setCapability("nativeEvents", false);
-                ieCapabilities.setCapability("unexpectedAlertBehaviour", "accept");
-                ieCapabilities.setCapability("ignoreProtectedModeSettings", true);
-                ieCapabilities.setCapability("disable-popup-blocking", true);
-                ieCapabilities.setCapability("enablePersistentHover", true);
-                ieCapabilities.setCapability("ignoreZoomSetting", true);
+                        ieCapabilities.setCapability("nativeEvents", false);
+                        ieCapabilities.setCapability("unexpectedAlertBehaviour", "accept");
+                        ieCapabilities.setCapability("ignoreProtectedModeSettings", true);
+                        ieCapabilities.setCapability("disable-popup-blocking", true);
+                        ieCapabilities.setCapability("enablePersistentHover", true);
+                        ieCapabilities.setCapability("ignoreZoomSetting", true);
+                        ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 
-                //ieCapabilities.setCapability("ignoreZoomSetting", true);
                         ieDriver = new InternetExplorerDriver(ieCapabilities);
+
                 return ieDriver;
             case "chrome":
             default:
