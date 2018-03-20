@@ -60,6 +60,10 @@ public class DashboardPage {
         builder.moveToElement(catalog).build().perform();
     }
 
+    public void clickCatalogMenuItem(){
+        (driver.findElement(catalogMenuItem)).click();
+    }
+
     public void clickCategoriesSubMenuItem(){
         waitForElementPresence(categoriesSubMenuItem);
         (driver.findElement(categoriesSubMenuItem)).click();

@@ -48,9 +48,18 @@ public abstract class BaseTest {
                         getResource("/IEDriverServer.exe"));
                         InternetExplorerDriver ieDriver;
                         //Ignore zoom level for IE   https://groups.google.com/forum/?fromgroups=#!topic/webdriver/pZuj9uU1Evc
-                        DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-                        caps.setCapability("ignoreZoomSetting", true);
-                        ieDriver = new InternetExplorerDriver(caps);
+                        //https://github.com/SeleniumHQ/selenium/issues/4292
+                DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
+
+                ieCapabilities.setCapability("nativeEvents", false);
+                ieCapabilities.setCapability("unexpectedAlertBehaviour", "accept");
+                ieCapabilities.setCapability("ignoreProtectedModeSettings", true);
+                ieCapabilities.setCapability("disable-popup-blocking", true);
+                ieCapabilities.setCapability("enablePersistentHover", true);
+                ieCapabilities.setCapability("ignoreZoomSetting", true);
+
+                //ieCapabilities.setCapability("ignoreZoomSetting", true);
+                        ieDriver = new InternetExplorerDriver(ieCapabilities);
                 return ieDriver;
             case "chrome":
             default:

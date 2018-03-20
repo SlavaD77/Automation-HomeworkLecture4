@@ -42,9 +42,10 @@ public class GeneralActions {
         // TODO implement product creation scenario ----DONE
         DashboardPage dashboardPage = new DashboardPage(driver);
 
-        dashboardPage.hoverCatalogMenuItem();
+        //dashboardPage.hoverCatalogMenuItem();
+        //dashboardPage.clickProductsCatalogSubtabItem();
 
-        dashboardPage.clickProductsCatalogSubtabItem();
+        dashboardPage.clickCatalogMenuItem();
 
         waitForContentLoad();
 
