@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Products Management" verbose="1" >
-<!--
+
     <parameter name="login" value="webinar.test@gmail.com"/>
     <parameter name="password" value="Xcg7299bnSmMuRLp9ITw"/>
     <parameter name="adminAddress" value="http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/"/>
     <parameter name="storeAddress" value="http://prestashop-automation.qatestlab.com.ua/"/>
--->
+
     <!--configure test to execute testing script using Chrome browser -->
 
     <test name="Create New Product [Chrome]" >
@@ -17,16 +17,16 @@
     </test>
 
     <!-- configuration to execute testing script using Firefox browser -->
-<!--
+
     <test name="Create New Product [Firefox]" >
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="myproject.automation.hwlecture4.tests.CreateProductTest"></class>
         </classes>
     </test>
--->
+
     <!-- configuration to execute testing script using IE browser -->
-<!--
+
     <test name="Create New Product [IE]" >
 
         <parameter name="browser" value="ie"/>
@@ -34,7 +34,7 @@
             <class name="myproject.automation.hwlecture4.tests.CreateProductTest"></class>
         </classes>
     </test>
-   -->
+
     <!--Prepare test for firefox and IE browsers-->
 
 </suite>
